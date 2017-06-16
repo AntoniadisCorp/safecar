@@ -1,0 +1,23 @@
+{
+  "name": "safecar",
+  "description": "save your car",
+  "main": "app.js",
+  "authors": [
+    "Antoniadis Prokopios"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "sfc"
+  ],
+  "homepage": "https://github.com/AntoniadisCorp/services",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "4",
+    "material-design-lite": "^1.3.0"
+  }
+}
