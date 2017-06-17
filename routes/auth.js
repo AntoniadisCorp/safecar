@@ -21,7 +21,6 @@ var express = require('express')
     res.json({message: 'You have to sign in ..'});
 }
 
-
 /* -------------------------- passport Strategy -------------------------- */
 // Compares hashed passwords using bCrypt
 , isValidPassword = (user, password) => bCrypt.compareSync(password, user.password)
