@@ -4,5 +4,6 @@
         "**/*.js": {"when": "$(basename).ts"},
         "**/*.js.map": true
     },
-    "typescript.tsdk": "../.npm-global/lib/node_modules/typescript/lib"
+    "typescript.tsdk": "../.npm-global/lib/node_modules/typescript/lib",
+    "git.ignoreLimitWarning": true
 }

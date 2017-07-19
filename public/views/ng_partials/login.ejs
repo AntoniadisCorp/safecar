@@ -1,24 +1,46 @@
-<div class="col-md-6 col-md-offset-3">
-    <h2>Login</h2>
-    <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
-            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-        </div>
-        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
-            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-        </div>
-        <div class="form-group">
-            <button [disabled]="loading" class="btn btn-primary">Login</button>
-            
-            <i *ngIf="loading" class="fa fa-spin fa-spinner" aria-hidden="true"></i>
-            <!--<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />-->
-            <a [routerLink]="['/register']" class="btn btn-link">Register</a>
-        </div>
-    </form>
-</div>
+<form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+    <md-card class="col-md-6 col-md-offset-3">
+        <md-card-title-group>
+            <md-card-title><h2>Login</h2></md-card-title>
+            <md-card-subtitle></md-card-subtitle>
+            <!--<img md-card-sm-image alt="image caption" src="Side image">-->
+            <button  md-mini-fab md-card-sm-image routerLink color="accent" [routerLink]="['/register']" style="text-decoration: none;" class="btn btn-link"><i class="material-icons">&#xE90D;</i></button>
+        </md-card-title-group>
+        <!--<img md-card-image src="Card wide image source">-->
+        <md-card-content>
 
+                <div id="output" style="margin-top: 5px" *ngIf="((f.submitted && result.message !== '') || ( !username.valid && (username.dirty || username.touched)) || (!password.valid && (password.dirty || password.touched)) ) && (username.dirty || username.touched || password.dirty || password.touched )" class="alert alert-danger animated fadeInUp help-block">
+                    <h4 class="alert-heading" *ngIf="(f.submitted && (result.message !== '')) || !password.valid  || !username.valid">Attention Please!</h4>
+                    <div [hidden]="username.valid"> Your infos must be a mobile phone or an email </div> 
+                    
+                    <div *ngIf="f.submitted && result.message"> {{result.message}}</div>
+                    <div *ngIf="(username.dirty || username.touched) && username.errors && username.errors.required && !username.valid"> Username is required!</div>
+                    <div *ngIf="(password.dirty || password.touched) && password.errors && password.errors.required && !password.valid"> Password is required!</div>               
+                </div>
+
+
+                <div class="form-group">
+                    <ng-template #popContent  let-greeting="greeting"><div [ngClass]="{ 'animated': f.submitted && greeting, 'fadeInUp': f.submitted && greeting }">{{greeting}}</div></ng-template>
+                    <input type="email" name="username" [pattern]="model.regex" placeholder="Email or mobile" [ngbPopover]="popContent" #p="ngbPopover" placement="right" popoverTitle="Tips" triggers="manual" class="form-control" [(ngModel)]="model.username" #username="ngModel" required />
+                </div>
+
+                <div class="form-group cf" >
+                    <div class="input-group">
+                        <input  #showhideinput placeholder="Password" type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+                        <span class="input-group-addon" id="basic-addon2"><i  ngbTooltip="show/hide password" (click)="toggleShow()"  class="fa fa-eye"></i></span> 
+                    </div>
+                </div>
+        </md-card-content>
+
+        <md-card-actions align="center">
+
+            <button md-raised-button [disabled]="loading" class="col-sm-4 btn btn-primary" >Signin</button>
+            <md-spinner color="accent" *ngIf="loading" class="loginspinner" ></md-spinner>
+                <!--<img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />-->        
+        </md-card-actions>
+        <!--<md-card-footer>
+            Footer
+        </md-card-footer>-->
+    </md-card>
+</form>
 

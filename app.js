@@ -29,7 +29,7 @@ var fss = require('fs')
     cert: cert
 }
 , PORT = 3000
-, HOST = 'localhost'
+, HOST = 'localhost' //prokopis.hopto.org
 , passport = require('passport')
 , mongo  = require('mongojs')
 , db = mongo('mongodb://antoniadis:2a4b6c!8@ds161069.mlab.com:61069/car_brand', ['users'])
@@ -146,9 +146,9 @@ var server = httpsecurity.createServer(https_options, app).listen(PORT, HOST)
 
 , appio = socket_io.listen(server)
 
-, socket = require('./ServerJavascript/socket.io')('')
+, io = require('./ServerJavascript/socket.io')('')
 
-socket.setSock(appio)
+io.setSock(appio)
 
 console.log('HTTPS Server listening on %s:%s', HOST, PORT)
 

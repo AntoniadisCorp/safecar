@@ -1,4 +1,6 @@
 var currentPrice = 99
+,tcpclient = require('./TcpSocketServer')
+tcpclient.myTestClient();
 
 module.exports = (appio) => {
 
@@ -10,7 +12,7 @@ module.exports = (appio) => {
 
         module.io.set("origins", "*:*")
 
-        module.io.on('connection', function (socket) {
+        module.io.sockets.on('connection', function (socket) {
             
             console.log('Server Side socket connected')
             socket.emit('priceUpdate', currentPrice)

@@ -27,8 +27,8 @@
               </div>
             </li>
             
-            <li *ngIf="custommerStr.status !== 'login'" class="nav-item"><a md-button class="nav-link" >Carboard</a></li>
-            <li *ngIf="custommerStr.status !== 'logout'" class="nav-item"><a md-button class="nav-link" (click)="goToRegistration()" routerLinkActive="active">Registration</a></li>
+            <li *ngIf="custommerStr.status !== 'login'" class="nav-item"><a md-button class="nav-link" (click)="goToCarboard()" routerLinkActive="active">Carboard</a></li>
+            <li *ngIf="custommerStr.status !== 'logout'" class="nav-item"><a md-button class="nav-link" (click)="goToRegistration()" routerLinkActive="active">signup</a></li>
             
             <form class="form-inline search-container" role="search">
             
