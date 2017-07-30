@@ -54,15 +54,12 @@
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'angular2-fontawesome':      'npm:angular2-fontawesome',
-<<<<<<< HEAD
       '@angular/material':         'npm:@angular/material/bundles/material.umd.js',
       '@angular/cdk':              'npm:@angular/cdk/bundles/cdk.umd.js',
       'hammerjs':                  'npm:hammerjs/hammer.js',
       'leaflet' :                  'npm:leaflet/dist/leaflet.js',
       '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
-=======
       'hammerjs':                  'npm:hammerjs/hammer.js',
->>>>>>> 789744c3fa20972e7da7462411385467b56adf72
 
       // further angular bundles
     },
