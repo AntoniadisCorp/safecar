@@ -44,7 +44,7 @@ var fss = require('fs')
 // APP ROUTES
 , index = require('./routes')
 , authen = require('./routes/auth')
-, tasks = require('./routes/tasks');
+, tasks = require('./routes/tasks')
 
 // app.use(flash()); // use connect-flash for flash messages stored in session
 
