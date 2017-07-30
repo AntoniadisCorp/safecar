@@ -33,7 +33,7 @@
       // our app is within the app folder
       app: 'app',
 
-      // angular bundles
+       // angular bundles
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
       '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
@@ -47,15 +47,22 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
       '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
-      // other libraries
+      '@angular/material':         'npm:@angular/material/bundles/material.umd.js',
+      '@angular/cdk':              'npm:@angular/cdk/bundles/cdk.umd.js',
+      '@angular/animations':         'npm:@angular/animations/bundles/animations.umd.js',
+       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'angular2-fontawesome':      'npm:angular2-fontawesome',
+<<<<<<< HEAD
       '@angular/material':         'npm:@angular/material/bundles/material.umd.js',
       '@angular/cdk':              'npm:@angular/cdk/bundles/cdk.umd.js',
       'hammerjs':                  'npm:hammerjs/hammer.js',
       'leaflet' :                  'npm:leaflet/dist/leaflet.js',
       '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
+=======
+      'hammerjs':                  'npm:hammerjs/hammer.js',
+>>>>>>> 789744c3fa20972e7da7462411385467b56adf72
 
       // further angular bundles
     },

@@ -8,7 +8,7 @@ Save the following server in example.js:
 var net = require('net');
 
 // SERVER ADRESS
-const svraddr = 'localhost'; // 192.168.2.11
+const svraddr = 'localhost';
 // SERVER PORT
 const svrport = 8080;
 

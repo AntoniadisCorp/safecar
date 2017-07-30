@@ -11,6 +11,7 @@
   },
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "@angular/animations": "^4.2.6",
     "@angular/cdk": "^2.0.0-beta.8",
     "@angular/common": "^4.2.6",
@@ -30,6 +31,22 @@
     "@types/node": "^8.0.12",
     "@types/socket.io-client": "^1.4.29",
     "@yaga/leaflet-ng2": "^1.0.0-rc6",
+=======
+    "@angular/common": "^4.3.2",
+    "@angular/compiler": "^4.3.2",
+    "@angular/core": "^4.3.2",
+    "@angular/forms": "^4.3.2",
+    "@angular/http": "^4.3.2",
+    "@angular/material": "^2.0.0-beta.2",
+    "@angular/platform-browser": "^4.3.2",
+    "@angular/platform-browser-dynamic": "^4.3.2",
+    "@angular/router": "^4.3.2",
+    "@angular/upgrade": "^4.3.2",
+    "@ng-bootstrap/ng-bootstrap": "^1.0.0-alpha.21",
+    "@types/ejs": "^2.3.33",
+    "@types/node": "^8.0.17",
+    "@types/socket.io-client": "^1.4.29",
+>>>>>>> 789744c3fa20972e7da7462411385467b56adf72
     "angular-in-memory-web-api": "^0.3.2",
     "angular2-fontawesome": "^0.9.1",
     "concurrently": "^3.4.0",
@@ -53,11 +70,19 @@
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.4.2",
     "socket.io": "^2.0.3",
+<<<<<<< HEAD
     "systemjs": "^0.20.15",
     "tslint": "^5.5.0",
     "typescript": "^2.2.1",
     "zone": "^0.3.4",
     "zone.js": "^0.8.13"
+=======
+    "systemjs": "^0.20.17",
+    "tslint": "^5.5.0",
+    "typescript": "^2.2.1",
+    "zone": "^0.3.4",
+    "zone.js": "^0.8.16"
+>>>>>>> 789744c3fa20972e7da7462411385467b56adf72
   },
   "devDependencies": {
     "concurrently": "^3.0.0",
