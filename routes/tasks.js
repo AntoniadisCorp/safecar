@@ -2,7 +2,7 @@ var express = require('express')
 , passport = require('passport')
 , router = express.Router()
 , mongo  = require('mongojs')
-, db = mongo('mongodb://antoniadis:2a4b6c!8@ds161069.mlab.com:61069/car_brand', ['tasks'])
+, db = mongo('mongodb://antoniadis:2a4b6c!8@ds161069.mlab.com:61069/car_brand', ['tasks', 'tk103'])
 
 // As with any middleware it is quintessential to call next()
 // if the user is authenticated
@@ -23,6 +23,8 @@ var express = require('express')
 router.get('/tasks', tasks) // Get All Tasks
 router.get('/task/:id', singletask) // Get Single task
 
+router.get('/init/:id', auth, initializeUnit) // Send Begin SMS to the device
+
 /**
  * https Router Posts
  */
@@ -37,6 +39,8 @@ router.delete('/task/:id', auth, deletetask) // Delete task
  * https Router Put
  */
 router.put('/task/:id', auth, updatetask) // Update task
+
+router.put('/resetpass/:id', auth, resetpassword) // update password of the device
 
 
 
@@ -101,6 +105,82 @@ function updatetask (req, res, next) {
             res.json(tasks)
         })
     }
+}
+
+function initializeUnit(req, res) {
+
+    let defaultpass = '123456'
+    tk103 = { oldpass: defaultpass }
+    commandString = 'begin' + defaultpass // default password
+
+    // send command to tk03 and callback
+
+    // if password changed
+    db.tk103.save({_id: mongo.ObjectId(req.params.id)}, tk103, {}, (err, tk103) => {
+        if (err) res.send(err)
+        res.json('begin ok! device is ready to used..')
+    })
+}
+
+function resetpassword(req, res) {
+    
+    // find old password
+    db.tk103.findOne({_id: mongo.ObjectId(req.params.id) }, (err, tk103) =>{
+        if (err) res.send(err)
+
+        // if fetched password send command to device tk03
+        let newpass = req.body
+        , oldpass = tk103.oldpass
+        , commandString = 'password' + oldpass  + ' ' + newpass // change password
+    
+        // send command to tk03 and callback
+
+        // if success update db.tk03 password
+        tk103.oldpass = newpass
+
+        db.tk103.update({_id: mongo.ObjectId(req.params.id)}, tk103, {}, (err, tk103) => {
+            if (err) res.send(err)
+            res.json('begin ok! device is ready to used..')
+        })
+    })
+}
+
+function authorization(res, req) {
+    
+    // if password fetched and send command to device tk03
+    let authorizednumber = req.body
+    , pass = tk103.oldpass
+    , commandString = 'admin' + pass + ' ' + authorizednumber // change password with +cod
+
+    // send command to tk03 and callback
+}
+
+// function singleLocation(params) {
+    
+// }
+
+function autotrack(res, req, next) {
+ 
+    // if password fetched and send command to device tk03
+    let type = req.body // type: cancelation or limit-unlimited
+    , pass = tk103.oldpass
+    , commandString = null// change password with +cod
+
+    // send command to tk03 and callback
+
+    // if password fetched and send command to device tk03
+    if (type == 'cancel') commandString = 'notn' + pass // change password with +cod
+    else if (type == 'unlimited') commandString = 't'+ m + s_double_precesion + 's' + '***n' + pass
+    else commandString = 't'+ m + s_double_precesion + 's' + times_third_precesion + 'n' + pass
+}
+
+function voiceMonitor(res, req) {
+    
+    // if password fetched and send command to device tk03
+    let mode = req.body // mode = tracker mode or monitor
+    , pass = tk103.oldpass
+    , commandString = mode + pass
+    // send command to tk03 and callback res json
 }
 
 module.exports = router
