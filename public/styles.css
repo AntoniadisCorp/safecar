@@ -1,3 +1,11 @@
+@import "node_modules/@angular/material/prebuilt-themes/indigo-pink.css";
+@import "node_modules/font-awesome/css/font-awesome.min.css";
+@import "components/bootstrap/dist/css/bootstrap.min.css";
+@import "node_modules/leaflet/dist/leaflet.css";
+
+
+
+
 body {
   background-color: #eee;
 }
@@ -39,6 +47,7 @@ body {
     color: black;
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     -moz-text-size-adjust: 100%;
+    margin: 0px 10% 0px 10%;
 }
 
 
@@ -47,7 +56,15 @@ body {
   position: static;
 }
 
+.mat-elevation-z {
+   -moz-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12); 
+}
 
 .mat-card:hover {
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  
+    -moz-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  -webkit-box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);  
 }

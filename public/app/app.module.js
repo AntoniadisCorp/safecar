@@ -17,14 +17,17 @@ var app_routes_1 = require("./app.routes");
 // Material Module and fonts
 var angular2_fontawesome_1 = require("angular2-fontawesome/angular2-fontawesome");
 var material_1 = require("@angular/material");
+var animations_1 = require("@angular/platform-browser/animations");
+var flex_layout_1 = require("@angular/flex-layout");
+var common_1 = require("@angular/common");
+var material_2 = require("@angular/material");
 // Auth Guard
-var index_1 = require("./_guards/index");
-var index_2 = require("./services/index");
+// import { AuthGuard, DeAuthGuard, CanLoadGuard } from './_guards/index'
+// import { AuthenticationService } from './services/index'
 // Components
 var app_component_1 = require("./app.component");
-var index_3 = require("./components/index");
-// import { PetService }       from './pet.service'
-var index_4 = require("./services/index");
+var index_1 = require("./components/index");
+var index_2 = require("./services/index");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -39,27 +42,30 @@ AppModule = __decorate([
             ng_bootstrap_1.NgbModule.forRoot(),
             app_routes_1.RoutingModule,
             angular2_fontawesome_1.Angular2FontawesomeModule,
-            material_1.MaterialModule
+            material_1.MaterialModule,
+            animations_1.BrowserAnimationsModule,
+            flex_layout_1.FlexLayoutModule,
+            common_1.CommonModule,
+            material_2.MdTabsModule,
+            material_2.MdCardModule
         ],
         declarations: [
             app_component_1.AppComponent,
-            index_3.TaskComponent,
-            index_3.SocketComponent,
-            index_3.MenuComponent,
-            index_3.FooterComponent,
-            index_3.HomeListComponent,
-            index_3.PageNotFoundComponent,
-            index_3.LoginComponent,
-            index_3.RegisterListComponent,
-            index_3.CarboardListComponent,
-            index_3.AlertComponent
+            index_1.TaskComponent,
+            index_1.SocketComponent,
+            index_1.MenuComponent,
+            index_1.FooterComponent,
+            index_1.HomeListComponent,
+            index_1.PageNotFoundComponent,
+            index_1.LoginComponent,
+            index_1.RegisterListComponent,
+            index_1.CarboardListComponent,
+            index_1.AlertComponent,
+            index_1.MapComponent
         ],
         providers: [
             //PetService
-            index_1.AuthGuard,
-            index_1.DeAuthGuard,
-            index_2.AuthenticationService,
-            index_4.WindowRef
+            index_2.WindowRef
         ],
         bootstrap: [
             app_component_1.AppComponent

@@ -17,22 +17,32 @@ var CarboardListComponent = (function () {
         this.route = route;
         this.router = router; /*,
         private service: HeroService*/
+        this.tiles = [
+            { text: 'One', cols: 3, rows: 1, color: 'lightblue' },
+            { text: 'Two', cols: 1, rows: 2, color: 'lightgreen' },
+            { text: 'Three', cols: 1, rows: 1, color: 'lightpink' },
+            { text: 'Four', cols: 2, rows: 1, color: '#DDBDF1' },
+        ];
     }
     CarboardListComponent.prototype.ngOnInit = function () {
+        // this.route.params
+        //     .switchMap((params: Params) =>
+        //     this.service.getHero(params.get('id')))
+        //     .subscribe((hero: Hero) => this.hero = hero);
         // this.sub = this.route.params
         // // (+) converts string 'id' to a number
         // .switchMap((params: Params) => this.service.getHero(+params['id']))
         // .subscribe((hero: Hero) => this.hero = hero);
     };
     CarboardListComponent.prototype.ngOnDestroy = function () {
-        this.sub.unsubscribe();
+        // this.sub.unsubscribe()
     };
     return CarboardListComponent;
 }());
 CarboardListComponent = __decorate([
     core_1.Component({
-        selector: 'carboard',
-        templateUrl: '../../views/main_partials/carboard.ejs',
+        // selector: 'carboard',
+        templateUrl: '../../views/ng_partials/carboard.ejs',
         styleUrls: ['../../styles/carboard.scss']
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,

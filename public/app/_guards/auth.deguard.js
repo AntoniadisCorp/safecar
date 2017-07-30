@@ -30,15 +30,19 @@ var DeAuthGuard = (function () {
         return this.checkLogin(url);
     };
     DeAuthGuard.prototype.checkLogin = function (url) {
-        var _this = this;
-        return this.authService.getLoggedIn()
-            .map(function (res) { return _this.authService.isLoggedIn = res; })
-            .take(1)
-            .do(function (allowed) {
-            console.log('deaut allowed:', allowed);
-            if (allowed)
-                _this.router.navigate(['/']);
-        });
+        var localst = JSON.parse(localStorage.getItem('currentUser')), loggedin = localst !== null && localst._id !== {} ? true : false;
+        console.log(loggedin, localStorage.getItem('currentUser'));
+        if (loggedin)
+            this.router.navigate(['/']);
+        return false;
+        // this.authService.getLoggedIn()
+        //     .map( res => this.authService.isLoggedIn = res)
+        //     .take(1)
+        //     .do(allowed => {
+        //         console.log('deaut allowed:',  allowed)
+        //         if (allowed) this.router.navigate(['/'])
+        //         return allowed
+        //     })
     };
     return DeAuthGuard;
 }());

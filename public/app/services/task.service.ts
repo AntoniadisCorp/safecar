@@ -18,7 +18,7 @@ export class TaskService {
         this.getTasks()
     }
 
-     /* ----  getTasks ---- */
+    /* ----  getTasks ---- */
     getTasks() {
         return this.http.get('/api/tasks')
             .map(res => res.json())
@@ -45,7 +45,7 @@ export class TaskService {
     /**
      * Documentation
      * @param {boolean} task  Enable or Disable checkbox Status
-     * 
+     * @returns {Observable} Returns Response of updated status
      */
     updateStatus(task) {
 

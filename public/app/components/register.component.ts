@@ -23,7 +23,7 @@ export class RegisterListComponent implements OnInit {
       Hiddencard: Boolean[]
 
       // Register Validation
-      pattern = {}
+      pattern: any = {}
 
       // button configuration
       ButtonText: string[]
@@ -54,8 +54,24 @@ export class RegisterListComponent implements OnInit {
 
 
         // --- initialize User data ---
-        // this.pattern.Firstname = '[α-ωΑ-Ω-ά-ώΆ-Ώ-a-zA-Z]*'
+        this.pattern.Firstname  = /^[α-ωΑ-Ωά-ώΆ-Ώ]*$/ // a-zA-Z for english
+        this.pattern.Lastname   = this.pattern.Firstname
+        this.pattern.email      = /^([a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)+)$/
+        this.pattern.mobile     = /^69(\d{8}$)/ // (\+\d{1,3}?)? for country code like +30
+        /* 
+          		# Start of group
+                (?=.*\d)		  #   must contains one digit from 0-9
+                (?=.*[a-z])		#   must contains one lowercase characters
+                (?=.*[A-Z])		#   must contains one uppercase characters
+                (?=.*[@#$%])	#   must contains one special symbols in the list "@#$%"
+                .		          #     match anything with previous condition checking
+                {6,20}	#        length at least 6 characters and maximum of 20
+              # End of group
+        */
+        this.pattern.password   = /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!#$%&'*+/=?^_`{|}~.-]).{6,20})$/
 
+        
+        
         // initialize Birthday
         this.birthday.push(this.user.information.day)
         this.birthday.push(this.user.information.month)

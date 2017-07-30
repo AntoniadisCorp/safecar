@@ -1,6 +1,7 @@
 import { Component } from '@angular/core'
 import { AuthenticationService, TaskService, 
-  AlertService, UserService, EventsService } from './services/index'
+  AlertService, UserService, EventsService, 
+  CarService } from './services/index'
 // import { AuthGuard, DeAuthGuard } from './_guards/index'
 
 @Component({
@@ -12,7 +13,8 @@ import { AuthenticationService, TaskService,
       AlertService, 
       UserService, 
       TaskService,
-      EventsService
+      EventsService,
+      CarService
   ]
 })
 

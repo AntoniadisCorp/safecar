@@ -14,7 +14,7 @@ var CanLoadGuard = (function () {
     function CanLoadGuard() {
     }
     CanLoadGuard.prototype.canLoad = function (route) {
-        return false;
+        return true;
     };
     return CanLoadGuard;
 }());

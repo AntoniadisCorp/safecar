@@ -10,23 +10,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var index_1 = require("../services/index");
-var AlertComponent = (function () {
-    function AlertComponent(alertService) {
-        this.alertService = alertService;
+var http_1 = require("@angular/http");
+require("rxjs/add/operator/map");
+require("rxjs/add/operator/catch");
+/**
+ *  Documentation
+ *
+ * @param {class} CarService
+ */
+var CarService = (function () {
+    function CarService(http) {
+        this.http = http;
+        console.log('Car Service Inititialized...');
     }
-    AlertComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.alertService.getMessage().subscribe(function (message) { _this.message = message; });
+    CarService.prototype.Initialization = function () {
+        // fetch initialization
+        return this.http.get('/api/init/' + this._id)
+            .map(function (res) { return res.json(); });
     };
-    return AlertComponent;
+    return CarService;
 }());
-AlertComponent = __decorate([
-    core_1.Component({
-        selector: 'alert',
-        templateUrl: '../../views/main_partials/alert.component.ejs'
-    }),
-    __metadata("design:paramtypes", [index_1.AlertService])
-], AlertComponent);
-exports.AlertComponent = AlertComponent;
-//# sourceMappingURL=alert.component.js.map
+CarService = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [http_1.Http])
+], CarService);
+exports.CarService = CarService;
+//# sourceMappingURL=car.service.js.map

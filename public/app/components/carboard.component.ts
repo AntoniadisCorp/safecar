@@ -5,8 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
 
-    selector: 'carboard',
-    templateUrl: '../../views/main_partials/carboard.ejs',
+    // selector: 'carboard',
+    templateUrl: '../../views/ng_partials/carboard.ejs',
     styleUrls: ['../../styles/carboard.scss']
 })
 
@@ -17,7 +17,12 @@ export class CarboardListComponent implements OnInit, OnDestroy {
 
     private selectedId: number;
     private sub: any;
-
+     tiles = [
+        {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
+        {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
+        {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
+        {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
+    ];
     constructor(private route: ActivatedRoute, 
                 private router: Router/*, 
                 private service: HeroService*/ ) {
@@ -26,7 +31,10 @@ export class CarboardListComponent implements OnInit, OnDestroy {
      }
 
     ngOnInit() {
-
+        // this.route.params
+        //     .switchMap((params: Params) =>
+        //     this.service.getHero(params.get('id')))
+        //     .subscribe((hero: Hero) => this.hero = hero);
         // this.sub = this.route.params
         // // (+) converts string 'id' to a number
         // .switchMap((params: Params) => this.service.getHero(+params['id']))
@@ -35,6 +43,6 @@ export class CarboardListComponent implements OnInit, OnDestroy {
 
 
     ngOnDestroy() {
-        this.sub.unsubscribe()
+        // this.sub.unsubscribe()
     }
 }

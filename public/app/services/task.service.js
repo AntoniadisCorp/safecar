@@ -45,7 +45,7 @@ var TaskService = (function () {
     /**
      * Documentation
      * @param {boolean} task  Enable or Disable checkbox Status
-     *
+     * @returns {Observable<Response>} Returns Response of updated status
      */
     TaskService.prototype.updateStatus = function (task) {
         console.log(task);

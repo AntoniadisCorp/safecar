@@ -29,7 +29,7 @@ var UserService = (function () {
         return this.http.get('/auth/users/' + id, this.jwt()).map(function (res) { return res.json(); });
     };
     UserService.prototype.create = function (user) {
-        return this.http.post('/auth/signup', JSON.stringify({ user: user, username: user.mobile, password: '123123' }), this.jwt()).map(function (res) { return res.json(); });
+        return this.http.post('/auth/signup', JSON.stringify({ user: user, username: user.mobile, password: user.password }), this.jwt()).map(function (res) { return res.json(); });
     };
     UserService.prototype.update = function (user) {
         return this.http.put('/auth/users/' + user._id, user, this.jwt()).map(function (res) { return res.json(); });

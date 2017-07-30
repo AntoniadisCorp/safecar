@@ -24,21 +24,28 @@ export class DeAuthGuard implements CanDeactivate<LoginComponent> {
         component: LoginComponent,
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
-    ): Observable<boolean> {
+    ): boolean {
 
         let url: string = state.url
 
         return this.checkLogin(url)
     }
 
-    private checkLogin(url: string): Observable<boolean> {
+    private checkLogin(url: string): boolean {
 
-        return this.authService.getLoggedIn()
-            .map( res => this.authService.isLoggedIn = res)
-            .take(1)
-            .do(allowed => {
-                console.log('deaut allowed:',  allowed)
-                if (allowed) this.router.navigate(['/'])
-            })
+        let localst = JSON.parse(localStorage.getItem('currentUser'))
+        , loggedin = localst !== null && localst._id !== {}? true : false
+
+        console.log(loggedin, localStorage.getItem('currentUser'))
+        if (loggedin) this.router.navigate(['/'])
+        return false
+        // this.authService.getLoggedIn()
+        //     .map( res => this.authService.isLoggedIn = res)
+        //     .take(1)
+        //     .do(allowed => {
+        //         console.log('deaut allowed:',  allowed)
+        //         if (allowed) this.router.navigate(['/'])
+        //         return allowed
+        //     })
     }
 }

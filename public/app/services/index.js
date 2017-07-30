@@ -9,4 +9,5 @@ __export(require("./user.service"));
 __export(require("./authentication.service"));
 __export(require("./window.service"));
 __export(require("./event.service"));
+__export(require("./car.service"));
 //# sourceMappingURL=index.js.map

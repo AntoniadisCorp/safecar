@@ -27,7 +27,7 @@ var MenuComponent = (function () {
             sbtn: ''
         };
         this.custommerStr = {};
-        eventsService.on('loggedin', function (a, b) {
+        eventsService.on('loggedin', function (a, b, c) {
             alertService.success("User " + a + " " + b + " connected");
             _this.loginListener();
         });
@@ -46,8 +46,11 @@ var MenuComponent = (function () {
     MenuComponent.prototype.onSearch = function () {
         this.collapse.searchisCollapsed = !this.collapse.searchisCollapsed;
     };
-    MenuComponent.prototype.goToHome = function () { this.router.navigate(['/home']); };
-    MenuComponent.prototype.goToCarboard = function (id) { this.router.navigate(['/product-details', id]); };
+    MenuComponent.prototype.goToHome = function () { this.router.navigate(['/']); };
+    MenuComponent.prototype.goToCarboard = function () {
+        var loggedin = JSON.parse(localStorage.getItem('currentUser'));
+        this.router.navigate(['/carboard', loggedin._id]);
+    };
     MenuComponent.prototype.goToRegistration = function () { this.router.navigate(['/register']); };
     MenuComponent.prototype.login = function () { this.router.navigate(['/login']), this.loginListener(); };
     MenuComponent.prototype.logout = function () {
@@ -65,7 +68,7 @@ var MenuComponent = (function () {
         var _this = this;
         this.authService.getLoggedIn()
             .subscribe(function (data) {
-            console.log(data);
+            console.log('loginListener at menu bar: ' + data);
             _this.custommerStr = data ? { status: 'logout', color: 'warning' }
                 : { status: 'login', color: 'primary' };
         }, function (error) { return _this.alertService.error(error + ' on getting LoggedIn'); });

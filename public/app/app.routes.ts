@@ -8,8 +8,9 @@ import { Location,
   HashLocationStrategy } from '@angular/common'
 
 import { HomeRoutes }            from './routes/index'
-import { PageNotFoundComponent } from './components/index'
-import { AuthGuard }             from './_guards/index'
+import { PageNotFoundComponent, HomeListComponent } from './components/index'
+import { AuthGuard, DeAuthGuard, CanLoadGuard }             from './_guards/index'
+import { AuthenticationService } from './services/index'
 // import { FeatureRoutes }  from './routes/feature.router';
 
 // Route Configuration
@@ -19,8 +20,8 @@ export const appRoutes: Routes = [
   //...FeatureRoutes,
   {
     path: '',
-
-    redirectTo: '/home', 
+    component: HomeListComponent,
+    // redirectTo: '/', 
     pathMatch: 'full'
   },
   { path: '**', component: PageNotFoundComponent }
@@ -32,6 +33,10 @@ export const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
+    AuthGuard,
+    AuthenticationService,
+    DeAuthGuard,
+    CanLoadGuard,
   ],
   exports: [
     RouterModule

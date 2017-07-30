@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var index_1 = require("../services/index");
+var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 var LoginComponent = (function () {
     function LoginComponent(route, router, authService, alertService, eventsService) {
         this.route = route;
@@ -19,22 +20,30 @@ var LoginComponent = (function () {
         this.authService = authService;
         this.alertService = alertService;
         this.eventsService = eventsService;
-        this.model = { message: '' };
+        // [- ]?
+        this.model = { regex: /^(\+\d{1,3}?)?\d{10}?|([a-z0-9!#$%&'*+/=?^_`{|}~.-]+@[a-z0-9-]+(\.[a-z0-9-]+)+)$/gm };
+        this.result = { message: '' };
         this.loading = false;
+        this.show = true;
+        this.greeting = {};
     }
     LoginComponent.prototype.ngOnInit = function () {
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     };
+    LoginComponent.prototype.toggleShow = function () {
+        this.show = !this.show;
+        this.input.nativeElement.type = this.show ? 'text' : 'password';
+    };
     LoginComponent.prototype.login = function () {
         var _this = this;
         this.loading = true;
-        this.authService.login(this.model.username, this.model.password)
+        this.authService.signin(this.model.username, this.model.password)
             .subscribe(function (user) {
-            _this.model = user;
+            _this.result = user;
             _this.loading = false;
-            if (user && _this.model.message) {
-                _this.alertService.error(_this.model.message);
+            if (user && _this.result.message) {
+                _this.alertPopover({ greeting: 'Give your email or mobile phone' });
                 _this.router.navigate([_this.returnUrl + 'login']);
             }
             else {
@@ -43,21 +52,40 @@ var LoginComponent = (function () {
                     // If no redirect has been set, use the default
                     var redirect = _this.returnUrl = _this.authService.redirectUrl ? _this.authService.redirectUrl : '/';
                     console.log("Return Url " + _this.returnUrl);
-                    _this.eventsService.broadcast('loggedin', _this.model.Firstname, _this.model.Lastname);
+                    _this.eventsService.broadcast('loggedin', _this.result.Firstname, _this.result.Lastname, _this.result._id);
                     // Redirect the user
                     _this.router.navigate([redirect]);
                 }
             }
+            // remove error alert box
+            setTimeout(function () { _this.result.message = ''; }, 3000);
         }, function (error) {
             _this.alertService.error(error);
             _this.loading = false;
             _this.router.navigate([_this.returnUrl + 'login']);
         });
     };
+    LoginComponent.prototype.alertPopover = function (greeting) {
+        var isOpen = this.popover.isOpen();
+        this.popover.close();
+        if (greeting !== this.greeting || !isOpen) {
+            this.greeting = greeting;
+            this.popover.open(greeting);
+        }
+    };
     return LoginComponent;
 }());
+__decorate([
+    core_1.ViewChild('p'),
+    __metadata("design:type", ng_bootstrap_1.NgbPopover)
+], LoginComponent.prototype, "popover", void 0);
+__decorate([
+    core_1.ViewChild('showhideinput'),
+    __metadata("design:type", Object)
+], LoginComponent.prototype, "input", void 0);
 LoginComponent = __decorate([
     core_1.Component({
+        styleUrls: ['../../styles/login.scss'],
         templateUrl: '../../views/ng_partials/login.ejs'
     }),
     __metadata("design:paramtypes", [router_1.ActivatedRoute,

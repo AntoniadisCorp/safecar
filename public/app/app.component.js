@@ -23,7 +23,8 @@ AppComponent = __decorate([
             index_1.AlertService,
             index_1.UserService,
             index_1.TaskService,
-            index_1.EventsService
+            index_1.EventsService,
+            index_1.CarService
         ]
     })
 ], AppComponent);

@@ -12,13 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
+require("rxjs/add/observable/of");
+require("rxjs/add/operator/do");
+require("rxjs/add/operator/delay");
 var AuthenticationService = (function () {
     function AuthenticationService(http) {
         this.http = http;
         this.isLoggedIn = false;
         this.User = { _id: '' };
         console.log('AuthenticationService is Inititialized..');
-        this.getLoggedIn();
         // this.sub = Observable.interval(10000).map(x => JSON.parse(localStorage.getItem('currentUser'))._id? true : false)
         //       .subscribe(x => { this.isLoggedIn = x, console.log(`isLoggedIn ${this.isLoggedIn}`) })
     }
@@ -37,7 +39,7 @@ var AuthenticationService = (function () {
             return _this.isLoggedIn;
         });
     };
-    AuthenticationService.prototype.login = function (username, password) {
+    AuthenticationService.prototype.signin = function (username, password) {
         var _this = this;
         var headers = new http_1.Headers(); // { 'Authorization': 'Bearer ' + currentUser.token }
         headers.append('Content-Type', 'application/json');
@@ -59,9 +61,10 @@ var AuthenticationService = (function () {
         return this.http.get('/auth/logout').map(function (response) {
             var res = response.json(), loggedin = JSON.parse(localStorage.getItem('currentUser'));
             console.log("Loging out.. " + localStorage.getItem('currentUser'));
-            if (res && loggedin._id)
+            if (res && loggedin._id) {
                 // remove user from local storage to log user out
                 localStorage.removeItem('currentUser');
+            }
             return res;
         });
     };

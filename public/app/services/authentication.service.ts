@@ -3,19 +3,21 @@ import { Http, Headers, RequestOptions, Response } from '@angular/http'
 import { Observable } from 'rxjs/Rx'
 
 import 'rxjs/add/operator/map'
+import 'rxjs/add/observable/of'
+import 'rxjs/add/operator/do'
+import 'rxjs/add/operator/delay'
  
 @Injectable()
 export class AuthenticationService implements OnDestroy {
     
     isLoggedIn: boolean = false
     User = { _id: '' }
-
+    
     // store the URL so we can redirect after logging in
     redirectUrl: string;
 
     constructor(private http: Http) {
         console.log( 'AuthenticationService is Inititialized..')
-        this.getLoggedIn()
         // this.sub = Observable.interval(10000).map(x => JSON.parse(localStorage.getItem('currentUser'))._id? true : false)
         //       .subscribe(x => { this.isLoggedIn = x, console.log(`isLoggedIn ${this.isLoggedIn}`) })
     }
@@ -26,7 +28,7 @@ export class AuthenticationService implements OnDestroy {
         // this.sub.unsubsribe()
     }
 
-    getLoggedIn () {
+    getLoggedIn () : Observable<boolean> {
 
         return this.http.get('/auth/loggedIn').map(response => {
 
@@ -45,7 +47,7 @@ export class AuthenticationService implements OnDestroy {
         
     }
  
-    login(username: string, password: string) {
+    signin(username: string, password: string) {
 
         let headers = new Headers(); // { 'Authorization': 'Bearer ' + currentUser.token }
         headers.append('Content-Type','application/json')
@@ -75,9 +77,11 @@ export class AuthenticationService implements OnDestroy {
 
                 let res = response.json(), loggedin = JSON.parse(localStorage.getItem('currentUser'))
                 console.log(`Loging out.. ${localStorage.getItem('currentUser')}`)
-                if (res && loggedin._id)
+                if (res && loggedin._id) {
                     // remove user from local storage to log user out
                     localStorage.removeItem('currentUser')
+                }
+                    
 
                 return res
             })

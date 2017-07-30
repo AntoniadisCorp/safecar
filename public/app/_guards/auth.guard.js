@@ -24,16 +24,12 @@ var AuthGuard = (function () {
         return this.checkLogin(url);
     };
     AuthGuard.prototype.checkLogin = function (url) {
-        var _this = this;
-        return this.authService.getLoggedIn()
-            .map(function (res) { return _this.authService.isLoggedIn = res; })
-            .take(1)
-            .do(function (allowed) {
-            console.log('allowed: ' + url + ' ', allowed);
-            if (allowed === false)
-                _this.router.navigate(['/login']);
-            // else this.router.navigate([url])
-        });
+        // get Sign In status from localStorage Web Cookie
+        var localst = JSON.parse(localStorage.getItem('currentUser')), loggedin = localst !== null && localst._id !== {} ? true : false;
+        var passport = !loggedin;
+        if (!passport)
+            this.router.navigate([url]);
+        return true;
     };
     return AuthGuard;
 }());

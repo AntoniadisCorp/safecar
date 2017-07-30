@@ -12,13 +12,16 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var index_1 = require("./routes/index");
 var index_2 = require("./components/index");
+var index_3 = require("./_guards/index");
+var index_4 = require("./services/index");
 // import { FeatureRoutes }  from './routes/feature.router';
 // Route Configuration
 exports.appRoutes = index_1.HomeRoutes.concat([
     //...FeatureRoutes,
     {
         path: '',
-        redirectTo: '/home',
+        component: index_2.HomeListComponent,
+        // redirectTo: '/', 
         pathMatch: 'full'
     },
     { path: '**', component: index_2.PageNotFoundComponent }
@@ -33,7 +36,12 @@ RoutingModule = __decorate([
         imports: [
             router_1.RouterModule.forRoot(exports.appRoutes)
         ],
-        providers: [],
+        providers: [
+            index_3.AuthGuard,
+            index_4.AuthenticationService,
+            index_3.DeAuthGuard,
+            index_3.CanLoadGuard,
+        ],
         exports: [
             router_1.RouterModule
         ]

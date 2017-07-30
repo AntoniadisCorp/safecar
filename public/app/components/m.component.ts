@@ -43,7 +43,8 @@ export class MenuComponent implements OnInit {
     constructor(private renderer: Renderer, private authService: AuthenticationService,
         private alertService: AlertService, private router: Router, private eventsService: EventsService) {
         
-        eventsService.on('loggedin', (a, b) => {
+        eventsService.on('loggedin', (a, b, c) => {
+            
                 alertService.success(`User ${a} ${b} connected`)
                 this.loginListener()
         })
@@ -68,9 +69,12 @@ export class MenuComponent implements OnInit {
         this.collapse.searchisCollapsed = !this.collapse.searchisCollapsed
     }
 
-    goToHome() { this.router.navigate(['/home']) }
+    goToHome() { this.router.navigate(['/']) }
 
-    goToCarboard(id) { this.router.navigate(['/product-details', id])}
+    goToCarboard() {
+        let loggedin = JSON.parse(localStorage.getItem('currentUser'))
+        this.router.navigate(['/carboard', loggedin._id ])
+    }
 
     goToRegistration() { this.router.navigate(['/register']) }
 
@@ -98,7 +102,7 @@ export class MenuComponent implements OnInit {
         this.authService.getLoggedIn()
             .subscribe(
                 data => {
-                    console.log(data)
+                    console.log('loginListener at menu bar: ' + data)
                     this.custommerStr = data? {status: 'logout', color: 'warning'} 
                         : {status: 'login', color: 'primary'} },
                 error => this.alertService.error(  error + ' on getting LoggedIn')

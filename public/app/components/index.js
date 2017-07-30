@@ -13,4 +13,5 @@ __export(require("./register.component"));
 __export(require("./socketio.component"));
 __export(require("./tasks.component"));
 __export(require("./login.component"));
+__export(require("./map.component"));
 //# sourceMappingURL=index.js.map

@@ -6,6 +6,6 @@ export class CanLoadGuard implements CanLoad {
     constructor() { }
 
     canLoad(route: Route) {
-        return false
+        return true
     }
 }

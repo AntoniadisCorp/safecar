@@ -9,34 +9,23 @@ import 'rxjs/add/operator/take'
 @Injectable()
 export class AuthGuard implements CanActivate {
  
-    constructor(private authService: AuthenticationService, private router: Router) { }
+    constructor(private authService: AuthenticationService, private router: Router) {}
  
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
         let url: string = state.url
 
         return this.checkLogin(url)
     }
 
-    private checkLogin(url: string): Observable<boolean> {
+    checkLogin(url: string) : boolean {
 
-        return this.authService.getLoggedIn()
-            .map( res => this.authService.isLoggedIn = res)
-            .take(1)
-            .do(allowed => {
-                console.log('allowed: ' + url + ' ',  allowed)
-                if (allowed === false) this.router.navigate(['/login'])
-                // else this.router.navigate([url])
-            })
+        // get Sign In status from localStorage Web Cookie
+        let localst = JSON.parse(localStorage.getItem('currentUser'))
+        , loggedin = localst !== null && localst._id !== {}? true : false
+
+        let passport = !loggedin
+        if (!passport) this.router.navigate([url])
+        return true
     }
-
-    // if (res) {
-    //             // this.router.navigate(['/'])
-    //             // return Observable.of(!res).delay(1000).do(val => console.log(val));
-    //         } 
-    //         // Store the attempted URL for redirecting
-    //         // this.authService.redirectUrl = url
-    //         // this.router.navigate(['/login'])//, { queryParams: { returnUrl: state.url }}
-    //          // Navigate to the login page with extras
-    //         // return Observable.of(false).delay(1000).do(val => console.log(val));
 }
