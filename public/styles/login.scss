@@ -1,0 +1,128 @@
+@import "bourbon";
+
+// Main Colors
+$accent: null;
+$white: #ffffff;
+$black: #000000;
+$dark-gray: lighten($black, 20%);
+$gray: lighten($black, 40%);
+$light-gray: lighten($black, 60%);
+$lighter-gray: lighten($black, 80%);
+
+// Pen Settings
+$primary: #363636;
+$accent: #ed2553;
+$danger: #ff5000;
+$max-width: 460px;
+
+// form input.form-control {
+//    transition:all linear 0.5s;
+   
+//  }
+
+input.ng-touched {
+  border-color:#843534;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+}
+		
+input.ng-valid {
+  border-color: #398439;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+
+/*Clearing Floats*/
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+
+.cf:after{
+    clear:both;
+}
+
+.cf{
+    zoom:1;
+}    
+
+#output{
+    // position: absolute;
+    width: 300px;
+    top: -75px;
+    left: 0;
+    color: #fff;
+}
+
+#output.alert-success{
+    background: rgb(25, 204, 25);
+}
+
+#output.alert-danger{
+    background: rgb(228, 105, 105);
+}
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(20px);
+    -ms-transform: translateY(20px);
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+}
+// form input.form-control.ng-touched.ng-dirty.ng-invalid {
+//     border-color: #ed2553;
+//     box-shadow: 0px 1px 9px 0px;
+//  }
+md-card-title {
+    position: relative;
+    z-index: 1;
+    border-left: 5px solid #5bc0de;
+    margin: 0 0 35px;
+    padding: 10px 0 3px 30px;
+    color: #5bc0de;
+    font-size: 32px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.loginspinner {
+    display: inherit;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    float: right;
+}
