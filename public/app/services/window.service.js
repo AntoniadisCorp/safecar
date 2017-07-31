@@ -21,10 +21,10 @@ var WindowRef = (function () {
         enumerable: true,
         configurable: true
     });
+    WindowRef = __decorate([
+        core_1.Injectable()
+    ], WindowRef);
     return WindowRef;
 }());
-WindowRef = __decorate([
-    core_1.Injectable()
-], WindowRef);
 exports.WindowRef = WindowRef;
 //# sourceMappingURL=window.service.js.map

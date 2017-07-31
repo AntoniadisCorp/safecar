@@ -29,23 +29,23 @@ exports.appRoutes = index_1.HomeRoutes.concat([
 var RoutingModule = (function () {
     function RoutingModule() {
     }
+    RoutingModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                router_1.RouterModule.forRoot(exports.appRoutes)
+            ],
+            providers: [
+                index_3.AuthGuard,
+                index_4.AuthenticationService,
+                index_3.DeAuthGuard,
+                index_3.CanLoadGuard,
+            ],
+            exports: [
+                router_1.RouterModule
+            ]
+        })
+    ], RoutingModule);
     return RoutingModule;
 }());
-RoutingModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            router_1.RouterModule.forRoot(exports.appRoutes)
-        ],
-        providers: [
-            index_3.AuthGuard,
-            index_4.AuthenticationService,
-            index_3.DeAuthGuard,
-            index_3.CanLoadGuard,
-        ],
-        exports: [
-            router_1.RouterModule
-        ]
-    })
-], RoutingModule);
 exports.RoutingModule = RoutingModule;
 //# sourceMappingURL=app.routes.js.map

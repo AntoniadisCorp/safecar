@@ -73,28 +73,28 @@ var MenuComponent = (function () {
                 : { status: 'login', color: 'primary' };
         }, function (error) { return _this.alertService.error(error + ' on getting LoggedIn'); });
     };
+    MenuComponent = __decorate([
+        core_1.Component({
+            selector: 'navig',
+            templateUrl: '../../views/main_partials/header.ejs',
+            animations: [
+                core_1.trigger('myAnimation', [
+                    core_1.transition(':enter', [
+                        core_1.style({ transform: 'translateX(100%)', opacity: 0 }),
+                        core_1.animate('500ms', core_1.style({ transform: 'translateX(0)', opacity: 1 }))
+                    ]),
+                    core_1.transition(':leave', [
+                        core_1.style({ transform: 'translateX(0)', 'opacity': 1 }),
+                        core_1.animate('500ms', core_1.style({ transform: 'translateX(100%)', opacity: 0 })),
+                    ])
+                ])
+            ],
+            styleUrls: ['../../styles/header.scss']
+        }),
+        __metadata("design:paramtypes", [core_1.Renderer, index_1.AuthenticationService,
+            index_1.AlertService, router_1.Router, index_1.EventsService])
+    ], MenuComponent);
     return MenuComponent;
 }());
-MenuComponent = __decorate([
-    core_1.Component({
-        selector: 'navig',
-        templateUrl: '../../views/main_partials/header.ejs',
-        animations: [
-            core_1.trigger('myAnimation', [
-                core_1.transition(':enter', [
-                    core_1.style({ transform: 'translateX(100%)', opacity: 0 }),
-                    core_1.animate('500ms', core_1.style({ transform: 'translateX(0)', opacity: 1 }))
-                ]),
-                core_1.transition(':leave', [
-                    core_1.style({ transform: 'translateX(0)', 'opacity': 1 }),
-                    core_1.animate('500ms', core_1.style({ transform: 'translateX(100%)', opacity: 0 })),
-                ])
-            ])
-        ],
-        styleUrls: ['../../styles/header.scss']
-    }),
-    __metadata("design:paramtypes", [core_1.Renderer, index_1.AuthenticationService,
-        index_1.AlertService, router_1.Router, index_1.EventsService])
-], MenuComponent);
 exports.MenuComponent = MenuComponent;
 //# sourceMappingURL=m.component.js.map

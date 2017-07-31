@@ -44,11 +44,11 @@ var DeAuthGuard = (function () {
         //         return allowed
         //     })
     };
+    DeAuthGuard = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router])
+    ], DeAuthGuard);
     return DeAuthGuard;
 }());
-DeAuthGuard = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router])
-], DeAuthGuard);
 exports.DeAuthGuard = DeAuthGuard;
 //# sourceMappingURL=auth.deguard.js.map

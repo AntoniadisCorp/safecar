@@ -31,46 +31,46 @@ var index_2 = require("./services/index");
 var AppModule = (function () {
     function AppModule() {
     }
+    AppModule = __decorate([
+        core_1.NgModule({
+            imports: [
+                platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                forms_1.FormsModule,
+                ng_bootstrap_1.NgbModule.forRoot(),
+                app_routes_1.RoutingModule,
+                angular2_fontawesome_1.Angular2FontawesomeModule,
+                material_1.MaterialModule,
+                animations_1.BrowserAnimationsModule,
+                flex_layout_1.FlexLayoutModule,
+                common_1.CommonModule,
+                material_2.MdTabsModule,
+                material_2.MdCardModule
+            ],
+            declarations: [
+                app_component_1.AppComponent,
+                index_1.TaskComponent,
+                index_1.SocketComponent,
+                index_1.MenuComponent,
+                index_1.FooterComponent,
+                index_1.HomeListComponent,
+                index_1.PageNotFoundComponent,
+                index_1.LoginComponent,
+                index_1.RegisterListComponent,
+                index_1.CarboardListComponent,
+                index_1.AlertComponent,
+                index_1.MapComponent
+            ],
+            providers: [
+                //PetService
+                index_2.WindowRef
+            ],
+            bootstrap: [
+                app_component_1.AppComponent
+            ]
+        })
+    ], AppModule);
     return AppModule;
 }());
-AppModule = __decorate([
-    core_1.NgModule({
-        imports: [
-            platform_browser_1.BrowserModule,
-            http_1.HttpModule,
-            forms_1.FormsModule,
-            ng_bootstrap_1.NgbModule.forRoot(),
-            app_routes_1.RoutingModule,
-            angular2_fontawesome_1.Angular2FontawesomeModule,
-            material_1.MaterialModule,
-            animations_1.BrowserAnimationsModule,
-            flex_layout_1.FlexLayoutModule,
-            common_1.CommonModule,
-            material_2.MdTabsModule,
-            material_2.MdCardModule
-        ],
-        declarations: [
-            app_component_1.AppComponent,
-            index_1.TaskComponent,
-            index_1.SocketComponent,
-            index_1.MenuComponent,
-            index_1.FooterComponent,
-            index_1.HomeListComponent,
-            index_1.PageNotFoundComponent,
-            index_1.LoginComponent,
-            index_1.RegisterListComponent,
-            index_1.CarboardListComponent,
-            index_1.AlertComponent,
-            index_1.MapComponent
-        ],
-        providers: [
-            //PetService
-            index_2.WindowRef
-        ],
-        bootstrap: [
-            app_component_1.AppComponent
-        ]
-    })
-], AppModule);
 exports.AppModule = AppModule;
 //# sourceMappingURL=app.module.js.map

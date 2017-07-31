@@ -104,16 +104,16 @@ var RegisterListComponent = (function () {
             _this.loading = false;
         });
     };
+    RegisterListComponent = __decorate([
+        core_1.Component({
+            templateUrl: '../../views/ng_partials/regProfile.ejs',
+            styleUrls: ['../../styles/register.scss']
+        }),
+        __metadata("design:paramtypes", [router_1.Router,
+            index_2.UserService,
+            index_2.AlertService])
+    ], RegisterListComponent);
     return RegisterListComponent;
 }());
-RegisterListComponent = __decorate([
-    core_1.Component({
-        templateUrl: '../../views/ng_partials/regProfile.ejs',
-        styleUrls: ['../../styles/register.scss']
-    }),
-    __metadata("design:paramtypes", [router_1.Router,
-        index_2.UserService,
-        index_2.AlertService])
-], RegisterListComponent);
 exports.RegisterListComponent = RegisterListComponent;
 //# sourceMappingURL=register.component.js.map

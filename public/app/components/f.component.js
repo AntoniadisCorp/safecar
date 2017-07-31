@@ -14,15 +14,15 @@ var FooterComponent = (function () {
     function FooterComponent() {
     }
     FooterComponent.prototype.ngOnInit = function () { };
+    FooterComponent = __decorate([
+        core_1.Component({
+            selector: 'foot',
+            templateUrl: '../../views/main_partials/footer.ejs',
+            styleUrls: ['../../styles/footer.scss']
+        }),
+        __metadata("design:paramtypes", [])
+    ], FooterComponent);
     return FooterComponent;
 }());
-FooterComponent = __decorate([
-    core_1.Component({
-        selector: 'foot',
-        templateUrl: '../../views/main_partials/footer.ejs',
-        styleUrls: ['../../styles/footer.scss']
-    }),
-    __metadata("design:paramtypes", [])
-], FooterComponent);
 exports.FooterComponent = FooterComponent;
 //# sourceMappingURL=f.component.js.map

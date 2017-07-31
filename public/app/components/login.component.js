@@ -73,25 +73,25 @@ var LoginComponent = (function () {
             this.popover.open(greeting);
         }
     };
+    __decorate([
+        core_1.ViewChild('p'),
+        __metadata("design:type", ng_bootstrap_1.NgbPopover)
+    ], LoginComponent.prototype, "popover", void 0);
+    __decorate([
+        core_1.ViewChild('showhideinput'),
+        __metadata("design:type", Object)
+    ], LoginComponent.prototype, "input", void 0);
+    LoginComponent = __decorate([
+        core_1.Component({
+            styleUrls: ['../../styles/login.scss'],
+            templateUrl: '../../views/ng_partials/login.ejs'
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router,
+            index_1.AuthenticationService,
+            index_1.AlertService, index_1.EventsService])
+    ], LoginComponent);
     return LoginComponent;
 }());
-__decorate([
-    core_1.ViewChild('p'),
-    __metadata("design:type", ng_bootstrap_1.NgbPopover)
-], LoginComponent.prototype, "popover", void 0);
-__decorate([
-    core_1.ViewChild('showhideinput'),
-    __metadata("design:type", Object)
-], LoginComponent.prototype, "input", void 0);
-LoginComponent = __decorate([
-    core_1.Component({
-        styleUrls: ['../../styles/login.scss'],
-        templateUrl: '../../views/ng_partials/login.ejs'
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router,
-        index_1.AuthenticationService,
-        index_1.AlertService, index_1.EventsService])
-], LoginComponent);
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

@@ -23,16 +23,16 @@ var CarService = (function () {
         this.http = http;
         console.log('Car Service Inititialized...');
     }
-    CarService.prototype.Initialization = function () {
+    CarService.prototype.Initialization = function (id) {
         // fetch initialization
-        return this.http.get('/api/init/' + this._id)
+        return this.http.get('/api/init/' + id)
             .map(function (res) { return res.json(); });
     };
+    CarService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], CarService);
     return CarService;
 }());
-CarService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], CarService);
 exports.CarService = CarService;
 //# sourceMappingURL=car.service.js.map

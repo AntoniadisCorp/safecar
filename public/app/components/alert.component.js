@@ -19,14 +19,14 @@ var AlertComponent = (function () {
         var _this = this;
         this.alertService.getMessage().subscribe(function (message) { _this.message = message; });
     };
+    AlertComponent = __decorate([
+        core_1.Component({
+            selector: 'alert',
+            templateUrl: '../../views/main_partials/alert.component.ejs'
+        }),
+        __metadata("design:paramtypes", [index_1.AlertService])
+    ], AlertComponent);
     return AlertComponent;
 }());
-AlertComponent = __decorate([
-    core_1.Component({
-        selector: 'alert',
-        templateUrl: '../../views/main_partials/alert.component.ejs'
-    }),
-    __metadata("design:paramtypes", [index_1.AlertService])
-], AlertComponent);
 exports.AlertComponent = AlertComponent;
 //# sourceMappingURL=alert.component.js.map

@@ -27,15 +27,15 @@ var SocketComponent = (function () {
             console.log('Socket io Started..');
         }.bind(this));
     };
+    SocketComponent = __decorate([
+        core_1.Component({
+            moduleId: module.id,
+            selector: 'auction-app',
+            templateUrl: '../../views/ng_partials/socketio.ejs'
+        }),
+        __metadata("design:paramtypes", [])
+    ], SocketComponent);
     return SocketComponent;
 }());
-SocketComponent = __decorate([
-    core_1.Component({
-        moduleId: module.id,
-        selector: 'auction-app',
-        templateUrl: '../../views/ng_partials/socketio.ejs'
-    }),
-    __metadata("design:paramtypes", [])
-], SocketComponent);
 exports.SocketComponent = SocketComponent;
 //# sourceMappingURL=socketio.component.js.map

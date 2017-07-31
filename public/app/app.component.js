@@ -12,21 +12,21 @@ var index_1 = require("./services/index");
 var AppComponent = (function () {
     function AppComponent() {
     }
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'my-app',
+            templateUrl: "../views/main_partials/app.ejs",
+            providers: [
+                // AuthenticationService,
+                index_1.AlertService,
+                index_1.UserService,
+                index_1.TaskService,
+                index_1.EventsService,
+                index_1.CarService
+            ]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'my-app',
-        templateUrl: "../views/main_partials/app.ejs",
-        providers: [
-            // AuthenticationService,
-            index_1.AlertService,
-            index_1.UserService,
-            index_1.TaskService,
-            index_1.EventsService,
-            index_1.CarService
-        ]
-    })
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map

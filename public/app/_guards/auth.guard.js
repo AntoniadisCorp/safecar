@@ -31,11 +31,11 @@ var AuthGuard = (function () {
             this.router.navigate([url]);
         return true;
     };
+    AuthGuard = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router])
+    ], AuthGuard);
     return AuthGuard;
 }());
-AuthGuard = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [index_1.AuthenticationService, router_1.Router])
-], AuthGuard);
 exports.AuthGuard = AuthGuard;
 //# sourceMappingURL=auth.guard.js.map

@@ -45,7 +45,7 @@ var TaskService = (function () {
     /**
      * Documentation
      * @param {boolean} task  Enable or Disable checkbox Status
-     * @returns {Observable<Response>} Returns Response of updated status
+     * @returns {Observable} Returns Response of updated status
      */
     TaskService.prototype.updateStatus = function (task) {
         console.log(task);
@@ -54,11 +54,11 @@ var TaskService = (function () {
         return this.http.put('/api/task/' + task._id, JSON.stringify(task), new http_1.RequestOptions({ headers: headers })) // , method: "put", withCredentials: true
             .map(function (res) { return res.json(); });
     };
+    TaskService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.Http])
+    ], TaskService);
     return TaskService;
 }());
-TaskService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [http_1.Http])
-], TaskService);
 exports.TaskService = TaskService;
 //# sourceMappingURL=task.service.js.map

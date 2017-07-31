@@ -10,12 +10,12 @@ var core_1 = require("@angular/core");
 var HomeListComponent = (function () {
     function HomeListComponent() {
     }
+    HomeListComponent = __decorate([
+        core_1.Component({
+            template: "\n        <h1> MyTaskList</h1>\n        <hr>\n        <tasks></tasks>\n      "
+        })
+    ], HomeListComponent);
     return HomeListComponent;
 }());
-HomeListComponent = __decorate([
-    core_1.Component({
-        template: "\n        <h1> MyTaskList</h1>\n        <hr>\n        <tasks></tasks>\n      "
-    })
-], HomeListComponent);
 exports.HomeListComponent = HomeListComponent;
 //# sourceMappingURL=home.component.js.map

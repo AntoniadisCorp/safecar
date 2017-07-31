@@ -44,11 +44,11 @@ var EventsService = (function () {
             args: args
         });
     };
+    EventsService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [])
+    ], EventsService);
     return EventsService;
 }());
-EventsService = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [])
-], EventsService);
 exports.EventsService = EventsService;
 //# sourceMappingURL=event.service.js.map

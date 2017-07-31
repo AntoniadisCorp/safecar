@@ -44,15 +44,15 @@ var MapComponent = (function () {
             .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
             .openPopup();
     };
+    MapComponent = __decorate([
+        core_1.Component({
+            selector: 'leaflet',
+            template: "<md-card ><map class=\"mat-card mat-elevation-z\" id=\"mapid\"></map></md-card>",
+            styleUrls: ['../../styles/map.scss']
+        }),
+        __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
+    ], MapComponent);
     return MapComponent;
 }());
-MapComponent = __decorate([
-    core_1.Component({
-        selector: 'leaflet',
-        template: "<md-card ><map class=\"mat-card mat-elevation-z\" id=\"mapid\"></map></md-card>",
-        styleUrls: ['../../styles/map.scss']
-    }),
-    __metadata("design:paramtypes", [core_1.ElementRef, core_1.Renderer])
-], MapComponent);
 exports.MapComponent = MapComponent;
 //# sourceMappingURL=map.component.js.map

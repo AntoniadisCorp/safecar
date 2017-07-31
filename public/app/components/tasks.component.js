@@ -68,15 +68,15 @@ var TaskComponent = (function () {
             _this.Alert.error(error);
         });
     };
+    TaskComponent = __decorate([
+        core_1.Component({
+            selector: 'tasks',
+            templateUrl: "../../views/ng_partials/tasks.ejs"
+        }),
+        __metadata("design:paramtypes", [task_service_1.TaskService,
+            index_1.AlertService])
+    ], TaskComponent);
     return TaskComponent;
 }());
-TaskComponent = __decorate([
-    core_1.Component({
-        selector: 'tasks',
-        templateUrl: "../../views/ng_partials/tasks.ejs"
-    }),
-    __metadata("design:paramtypes", [task_service_1.TaskService,
-        index_1.AlertService])
-], TaskComponent);
 exports.TaskComponent = TaskComponent;
 //# sourceMappingURL=tasks.component.js.map

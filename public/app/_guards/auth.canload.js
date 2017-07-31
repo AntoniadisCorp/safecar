@@ -16,11 +16,11 @@ var CanLoadGuard = (function () {
     CanLoadGuard.prototype.canLoad = function (route) {
         return true;
     };
+    CanLoadGuard = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [])
+    ], CanLoadGuard);
     return CanLoadGuard;
 }());
-CanLoadGuard = __decorate([
-    core_1.Injectable(),
-    __metadata("design:paramtypes", [])
-], CanLoadGuard);
 exports.CanLoadGuard = CanLoadGuard;
 //# sourceMappingURL=auth.canload.js.map

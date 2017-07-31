@@ -37,17 +37,17 @@ var CarboardListComponent = (function () {
     CarboardListComponent.prototype.ngOnDestroy = function () {
         // this.sub.unsubscribe()
     };
+    CarboardListComponent = __decorate([
+        core_1.Component({
+            // selector: 'carboard',
+            templateUrl: '../../views/ng_partials/carboard.ejs',
+            styleUrls: ['../../styles/carboard.scss']
+        }),
+        __metadata("design:paramtypes", [router_1.ActivatedRoute,
+            router_1.Router /*,
+            private service: HeroService*/])
+    ], CarboardListComponent);
     return CarboardListComponent;
 }());
-CarboardListComponent = __decorate([
-    core_1.Component({
-        // selector: 'carboard',
-        templateUrl: '../../views/ng_partials/carboard.ejs',
-        styleUrls: ['../../styles/carboard.scss']
-    }),
-    __metadata("design:paramtypes", [router_1.ActivatedRoute,
-        router_1.Router /*,
-        private service: HeroService*/])
-], CarboardListComponent);
 exports.CarboardListComponent = CarboardListComponent;
 //# sourceMappingURL=carboard.component.js.map
