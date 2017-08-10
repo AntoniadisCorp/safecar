@@ -1,9 +1,6 @@
 // becomes
 var env = process.env.NODE_ENV || 'production'
-if ('production' == env) {
-   // configure stuff here
 
-}
 
 var fss = require('fs')
 , express = require('express')
@@ -52,7 +49,15 @@ var fss = require('fs')
 
 
 // View Engine
-app.use(favicon(__dirname + '/public/favicon.ico'))
+if ('production' == env) {
+   // configure stuff here
+    app.use(favicon(__dirname + '/favicon.ico'))
+    app.use(express.static(fpath.join(__dirname + '/favicon.ico')))
+} else
+    // app.use(favicon(__dirname + '/public/favicon.ico'))
+
+    app.use(favicon(__dirname + '/favicon.ico'))
+    app.use(express.static(fpath.join(__dirname + '/favicon.ico')))
 app.set('views', express.static(fpath.join(__dirname + '/public/views')))
 // app.set('fonts', express.static(fpath.join(__dirname + '/public/fonts')))
 

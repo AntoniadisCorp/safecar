@@ -28,7 +28,7 @@ gulp.task('tslint', function() {
 });
 
 gulp.task('clean', function () {
-  return gulp.src('./build', {read: false})
+  return gulp.src('~/carwatcher', {read: false})
     .pipe(clean());
 });
 
@@ -57,7 +57,7 @@ gulp.task('copy_root', function() {
 	gulp.src(['./app.js'])
 	.pipe(babel())
 	.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
-	.pipe(gulp.dest('./build/'));
+	.pipe(gulp.dest('~/carwatcher/'));
 });
 
 
@@ -66,7 +66,7 @@ gulp.task('copy_root', function() {
 *		RUN : gulp copy_assets
 ******************************************************/
 gulp.task('copy_assets', function() {
-	gulp.src(['./assets/*']).pipe(gulp.dest('./build/assets/'));
+	gulp.src(['./assets/*']).pipe(gulp.dest('~/carwatcher/assets/'));
 });
 
 
@@ -77,7 +77,7 @@ gulp.task('copy_assets', function() {
 gulp.task('copy_bin', function() {
 	gulp.src(['./bin/www'])
 	.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
-	.pipe(gulp.dest('./build/bin/'));
+	.pipe(gulp.dest('~/carwatcher/bin/'));
 });
 
 
@@ -124,7 +124,7 @@ gulp.task('copy_nodemodules', function() {
 
 	] , { base: './node_modules/' } )
 	// .pipe(gulp.dest('./public/modules/'))
-	.pipe(gulp.dest('./build/node_modules/'));
+	.pipe(gulp.dest('~/carwatcher/node_modules/'));
 });
 
 
@@ -138,7 +138,7 @@ gulp.task('views', function() {
 
 	// minify views/ng_partials
 	var htmlSrc = './public/views/ng_partials/*.ejs',
-        htmlDst = './build/public/views/ng_partials';
+        htmlDst = '~/carwatcher/public/views/ng_partials';
 	gulp.src(htmlSrc)
 	//	.pipe(changed(htmlDst))
 		.pipe(ejsmin({removeComment: true}))
@@ -146,7 +146,7 @@ gulp.task('views', function() {
 
 	// minify views/node_partials
 	htmlSrc = './public/views/main_partials/*.ejs';
-	htmlDst = './build/public/views/main_partials';
+	htmlDst = '~/carwatcher/public/views/main_partials';
 	gulp.src(htmlSrc)
 	//	.pipe(changed(htmlDst))
 		.pipe(ejsmin({removeComment: true}))
@@ -155,7 +155,7 @@ gulp.task('views', function() {
 	// minify all views/*.* ejs files
 	gulp.src(['./public/views/*.ejs'])
 		.pipe(ejsmin({removeComment: true}))
-		.pipe(gulp.dest('./build/public/views/'));
+		.pipe(gulp.dest('~/carwatcher/public/views/'));
 });
 
 
@@ -167,7 +167,7 @@ gulp.task('routes', function() {
 	gulp.src(['./routes/*.js'])
 	//.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
 	.pipe(babel())
-	.pipe(gulp.dest('./build/routes/'));
+	.pipe(gulp.dest('~/carwatcher/routes/'));
 });
 
 
@@ -188,7 +188,7 @@ gulp.task('ServerJavascript', function() {
 	.pipe(stripDebug())
 	.pipe(babel())
 	.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
-	.pipe(gulp.dest('./build/ServerJavascript/'));
+	.pipe(gulp.dest('~/carwatcher/ServerJavascript/'));
 
 	// These two files cannot be parsed by uglify module so (maybe because they are written in ES6 format) so I just copy them.
 	gulp.src([
@@ -218,7 +218,7 @@ gulp.task('ServerJavascript', function() {
 	)
 	.pipe(babel())
 	.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
-	.pipe(gulp.dest('./build/ServerJavascript/'));
+	.pipe(gulp.dest('~/carwatcher/ServerJavascript/'));
 });
 
 
@@ -238,7 +238,7 @@ var tsResult = gulp.src(['./public/app/**/*.ts',
   		.pipe(sourcemaps.init()) // This means sourcemaps will be generated 
         .pipe(ts(tscConfig.compilerOptions))
 		.pipe(sourcemaps.write()) // Now the sourcemaps are added to the .js file 
-		// .pipe(gulp.dest('./build/public/app'));
+		// .pipe(gulp.dest('~/carwatcher/public/app'));
     
 
 	// var sources = browserify({
@@ -300,7 +300,7 @@ var tsResult = gulp.src(['./public/app/**/*.ts',
     // .pipe(vinylBuffer())
 	// .pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
 	// .pipe(gulp.dest('./public/app_JS/'))		// Put resulting file in the development folder
-    // .pipe(gulp.dest('./build/public/app_JS/')); // Put resulting file also in the build folder
+    // .pipe(gulp.dest('~/carwatcher/public/app_JS/')); // Put resulting file also in the build folder
 });
 
 
@@ -328,21 +328,21 @@ gulp.task('bower_scripts', ['bundle:app'], function() {
     // .pipe(stripDebug())
 	// .pipe(jshint())
 	.pipe(gulp.dest('./public/'))		// Put resulting file in the development folder
-	.pipe(gulp.dest('./build/public/')); // Put resulting file also in the build folder */
+	.pipe(gulp.dest('~/carwatcher/public/')); // Put resulting file also in the build folder */
 
 	// This file is not minimized. Minimize it and later add the minimized version to the gl2.js
 	gulp.src(['./public/app/ang4.js'])
 	.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     .pipe(concat('ang4.min.js'))
 	.pipe(gulp.dest('./public/app'))		// Put resulting file in the development folder
-	.pipe(gulp.dest('./build/public/app'));		// Put resulting file in the development folder
+	.pipe(gulp.dest('~/carwatcher/public/app'));		// Put resulting file in the development folder
 
 	// // This file is not minimized. Minimize it and later add the minimized version to the gl2.js
 	// gulp.src(['./public/systemjs.conifg.js'])
 	// .pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     // .pipe(concat('systemjs.conifg.js'))
 	// .pipe(gulp.dest('./public/'))		// Put resulting file in the development folder
-	// .pipe(gulp.dest('./build/public/'));		// Put resulting file in the development folder
+	// .pipe(gulp.dest('~/carwatcher/public/'));		// Put resulting file in the development folder
 	
 
 	// First general library	// // This file is not minimized. Minimize it and later add the minimized version to the gl2.js
@@ -350,7 +350,7 @@ gulp.task('bower_scripts', ['bundle:app'], function() {
 	// .pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     // .pipe(concat('systemjs.conifg.js'))
 	// .pipe(gulp.dest('./public/'))		// Put resulting file in the development folder
-	// .pipe(gulp.dest('./build/public/'));		// Put resulting file in the development folder
+	// .pipe(gulp.dest('~/carwatcher/public/'));		// Put resulting file in the development folder
 	gulp.src(['./public/components/jquery/dist/jquery.slim.min.js',
 			// './public/components/material-design-lite/material.min.js',
 			// './public/components/angular/angular.min.js',
@@ -362,7 +362,7 @@ gulp.task('bower_scripts', ['bundle:app'], function() {
 			])
     .pipe(concat('gl1.js'))
     .pipe(gulp.dest('./public/'))		// Put resulting file in the development folder
-    .pipe(gulp.dest('./build/public/')); // Put resulting file also in the build folder
+    .pipe(gulp.dest('~/carwatcher/public/')); // Put resulting file also in the build folder
 	
 	
   	// Second general library
@@ -381,7 +381,7 @@ gulp.task('bower_scripts', ['bundle:app'], function() {
 	.pipe(concat('gl2.js'))
 	.pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     // .pipe(gulp.dest('./public'))		// Put resulting file in the development folder
-    .pipe(gulp.dest('./build/public')); // Put resulting file also in the build folder
+    .pipe(gulp.dest('~/carwatcher/public')); // Put resulting file also in the build folder
 
 
   // Third general library
@@ -395,7 +395,7 @@ gulp.task('bower_scripts', ['bundle:app'], function() {
 			])
     .pipe(concat('gl3.js'))
     .pipe(gulp.dest('./public/'))		// Put resulting file in the development folder
-    .pipe(gulp.dest('./build/public/')); // Put resulting file also in the build folder
+    .pipe(gulp.dest('~/carwatcher/public/')); // Put resulting file also in the build folder
 });
 
 
@@ -409,27 +409,27 @@ gulp.task('AppJS_other', function() {
 
 	var imagemin = require('gulp-imagemin');
 
-	gulp.src(['./public/fonts/*']).pipe(gulp.dest('./build/public/fonts/'));
+	gulp.src(['./public/fonts/*']).pipe(gulp.dest('~/carwatcher/public/fonts/'));
 
 // There is some compatibility with imagemin after the node modules update on 11/02/2016.
 	gulp.src(['./public/images/*'])
 		.pipe(imagemin())
-		.pipe(gulp.dest('./build/public/images/'));
+		.pipe(gulp.dest('~/carwatcher/public/images/'));
 
 	gulp.src(['./public/node_modules/leaflet/dist/images/*'])
 		.pipe(imagemin())
 		.pipe(gulp.dest('./public/styles/bs/images/'))
-		.pipe(gulp.dest('./build/public/styles/bs/images/'));
+		.pipe(gulp.dest('~/carwatcher/public/styles/bs/images/'));
 
 	// Copy Https certification files
-	gulp.src(['./hacksparrow*.*']).pipe(gulp.dest('./build/'));
-	gulp.src(['./package.json']).pipe(gulp.dest('./build/'));
-	gulp.src(['./public/package.json']).pipe(gulp.dest('./build/public'))
-	gulp.src(['./public/package-lock.json']).pipe(gulp.dest('./build/public'))
-	gulp.src(['./public/index.html']).pipe(gulp.dest('./build/public'))
+	gulp.src(['./hacksparrow*.*']).pipe(gulp.dest('~/carwatcher/'));
+	gulp.src(['./package.json']).pipe(gulp.dest('~/carwatcher/'));
+	gulp.src(['./public/package.json']).pipe(gulp.dest('~/carwatcher/public'))
+	gulp.src(['./public/package-lock.json']).pipe(gulp.dest('~/carwatcher/public'))
+	gulp.src(['./public/index.html']).pipe(gulp.dest('~/carwatcher/public'))
 
 
-	gulp.src(['./public/favicon.ico']).pipe(gulp.dest('./build/public/'));
+	gulp.src(['./public/favicon.ico']).pipe(gulp.dest('~/carwatcher/public/'));
 });
 
 
@@ -452,7 +452,7 @@ gulp.task('styles', function() {
 		'./public/node_modules/font-awesome/fonts/*'
 		])
 		.pipe(gulp.dest('./public/styles/fonts/'))
-		.pipe(gulp.dest('./build/public/styles/fonts/'));
+		.pipe(gulp.dest('~/carwatcher/public/styles/fonts/'));
 
 	// gulp.src([
 	// 	'./public/components/bootstrap/dist/css/bootstrap.min.css',
@@ -461,7 +461,7 @@ gulp.task('styles', function() {
 	// 	'./public/node_modules/@angular/material/prebuilt-themes/indigo-pink.css',
 	// ], {base: 'styles/bs' })
 	// .pipe(gulp.dest('./public/styles/bs'))
-	// .pipe(gulp.dest('./build/public/styles/bs/'))
+	// .pipe(gulp.dest('~/carwatcher/public/styles/bs/'))
 
 	// This file is not minimized. Minimize it and later add the minimized version to the gl2.js
 	gulp.src(['./public/node_modules/leaflet/dist/leaflet.css'])
@@ -469,7 +469,7 @@ gulp.task('styles', function() {
     .pipe(concat('leaflet.min.css'))
 	.pipe(minifyCSS())
 	.pipe(gulp.dest('./public/styles/bs'))		// Put resulting file in the development folder
-	.pipe(gulp.dest('./build/public/styles/bs'));		// Put resulting file in the development folder
+	.pipe(gulp.dest('~/carwatcher/public/styles/bs'));		// Put resulting file in the development folder
 
 	// This file is not minimized. Minimize it and later add the minimized version to the gl2.js
 	gulp.src(['./public/node_modules/@angular/material/prebuilt-themes/indigo-pink.css'])
@@ -477,14 +477,14 @@ gulp.task('styles', function() {
     .pipe(concat('indigo-pink.min.css'))
 	.pipe(minifyCSS())
 	.pipe(gulp.dest('./public/styles/bs'))		// Put resulting file in the development folder
-	.pipe(gulp.dest('./build/public/styles/bs'));		// Put resulting file in the development folder
+	.pipe(gulp.dest('~/carwatcher/public/styles/bs'));		// Put resulting file in the development folder
 
 	// This file is not minimized. Minimize it and later add the minimized version to the gl2.js
 	gulp.src(['./public/node_modules/font-awesome/css/font-awesome.min.css'])
 	// .pipe(uglify({ mangle: false}).on('error', function(e) { console.log('\x07',e.message); return this.end(); }))
     // .pipe(concat('font-awesome.min.css'))
 	.pipe(gulp.dest('./public/styles/bs'))		// Put resulting file in the development folder
-	.pipe(gulp.dest('./build/public/styles/bs'));		// Put resulting file in the development folder
+	.pipe(gulp.dest('~/carwatcher/public/styles/bs'));		// Put resulting file in the development folder
 
 	// This file is not minimized. Minimize it and later add the minimized version to the gl2.js
 	gulp.src(['./public/components/bootstrap/dist/css/bootstrap.min.css'])
@@ -494,7 +494,7 @@ gulp.task('styles', function() {
 	.pipe(sass({outputStyle: 'compressed', outFile: "bootstrap.min.css"}).on('error', sass.logError))
 	.pipe(sourcemaps.write())
 	.pipe(gulp.dest('./public/styles/bs'))		// Put resulting file in the development folder
-	.pipe(gulp.dest('./build/public/styles/bs'));		// Put resulting file in the development folder
+	.pipe(gulp.dest('~/carwatcher/public/styles/bs'));		// Put resulting file in the development folder
 
 	// Concat, minify bootstrap's css file one level to folder styles/bs
 	// One level down from fonts folder so it can display font icons properly
@@ -518,7 +518,7 @@ gulp.task('styles', function() {
 	// .pipe(concat('styles.min.css'))
    	.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
   	.pipe(gulp.dest('./public/styles/'))
-	.pipe(gulp.dest('./build/public/styles/')); 
+	.pipe(gulp.dest('~/carwatcher/public/styles/')); 
 
 		//.pipe(cssnano())
 		
@@ -528,7 +528,7 @@ gulp.task('styles', function() {
 	.pipe(concat('app.min.css'))
    	.pipe(sass({outputStyle: 'compressed', outFile: "app.min.css"}).on('error', sass.logError))
   	.pipe(gulp.dest('./public/styles/'))
-	.pipe(gulp.dest('./build/public/styles/'));
+	.pipe(gulp.dest('~/carwatcher/public/styles/'));
 
 });
 
