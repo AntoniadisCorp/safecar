@@ -56,7 +56,7 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "scripts": {
-    "dev": "node ./bin/www",
+    "start": "node ./bin/www",
     "production": "node build/bin/www"
   },
   "repository": {
