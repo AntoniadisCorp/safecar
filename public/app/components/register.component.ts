@@ -6,7 +6,7 @@ import { UserService, AlertService }             from '../services/index'
 @Component({
   
   templateUrl: '../../views/ng_partials/regProfile.ejs',
-  styleUrls: ['../../styles/register.scss']
+  styleUrls: ['../../styles/register.css']
 })
 
 export class RegisterListComponent implements OnInit {

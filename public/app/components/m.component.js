@@ -58,6 +58,7 @@ var MenuComponent = (function () {
         this.authService.logout().subscribe(function (data) { _this.alertService.success('User ' + data), _this.loginListener(); }, function (error) { _this.alertService.error(error + ' User Disconnected'), _this.loginListener(); });
     };
     MenuComponent.prototype.logInOutAction = function () {
+        console.log('something');
         if (this.authService.isLoggedIn) {
             this.logout(), this.loginListener();
         }
@@ -89,7 +90,7 @@ var MenuComponent = (function () {
                     ])
                 ])
             ],
-            styleUrls: ['../../styles/header.scss']
+            styleUrls: ['../../styles/header.css']
         }),
         __metadata("design:paramtypes", [core_1.Renderer, index_1.AuthenticationService,
             index_1.AlertService, router_1.Router, index_1.EventsService])

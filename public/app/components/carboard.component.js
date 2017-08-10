@@ -41,7 +41,7 @@ var CarboardListComponent = (function () {
         core_1.Component({
             // selector: 'carboard',
             templateUrl: '../../views/ng_partials/carboard.ejs',
-            styleUrls: ['../../styles/carboard.scss']
+            styleUrls: ['../../styles/carboard.css']
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,
             router_1.Router /*,

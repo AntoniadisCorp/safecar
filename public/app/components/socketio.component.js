@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var io = require("socket.io-client");
 var SocketComponent = (function () {
     function SocketComponent() {
         this.price = 0.0;
@@ -29,7 +30,7 @@ var SocketComponent = (function () {
     };
     SocketComponent = __decorate([
         core_1.Component({
-            moduleId: module.id,
+            /* moduleId    : module.id, */
             selector: 'auction-app',
             templateUrl: '../../views/ng_partials/socketio.ejs'
         }),

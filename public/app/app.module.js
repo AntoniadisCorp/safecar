@@ -11,7 +11,6 @@ var platform_browser_1 = require("@angular/platform-browser");
 var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
-require("hammerjs");
 // Routing Module
 var app_routes_1 = require("./app.routes");
 // Material Module and fonts
@@ -20,7 +19,6 @@ var material_1 = require("@angular/material");
 var animations_1 = require("@angular/platform-browser/animations");
 var flex_layout_1 = require("@angular/flex-layout");
 var common_1 = require("@angular/common");
-var material_2 = require("@angular/material");
 // Auth Guard
 // import { AuthGuard, DeAuthGuard, CanLoadGuard } from './_guards/index'
 // import { AuthenticationService } from './services/index'
@@ -44,8 +42,6 @@ var AppModule = (function () {
                 animations_1.BrowserAnimationsModule,
                 flex_layout_1.FlexLayoutModule,
                 common_1.CommonModule,
-                material_2.MdTabsModule,
-                material_2.MdCardModule
             ],
             declarations: [
                 app_component_1.AppComponent,

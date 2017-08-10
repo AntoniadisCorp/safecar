@@ -8,6 +8,7 @@ import { AuthenticationService, TaskService,
 
   selector    : 'my-app',
   templateUrl : `../views/main_partials/app.ejs`,
+  // styleUrls: ['../styles/app.scss'],
   providers   : [ 
       // AuthenticationService,
       AlertService, 

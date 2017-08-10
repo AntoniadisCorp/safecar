@@ -24,12 +24,13 @@ var fss = require('fs')
 }
 , key = fss.readFileSync('hacksparrow-key.pem')
 , cert = fss.readFileSync('hacksparrow-cert.pem')
-, https_options = {
+, options = {
     key: key,
     cert: cert
 }
-, PORT = process.env.PORT || 3000
-, HOST = 'localhost' //prokopis.hopto.org
+
+// , PORT = process.env.PORT || 3000
+// , HOST = 'localhost' //prokopis.hopto.org
 , passport = require('passport')
 , mongo  = require('mongojs')
 , db = mongo('mongodb://antoniadis:2a4b6c!8@ds161069.mlab.com:61069/car_brand', ['users'])
@@ -53,6 +54,7 @@ var fss = require('fs')
 // View Engine
 app.use(favicon(__dirname + '/public/favicon.ico'))
 app.set('views', express.static(fpath.join(__dirname + '/public/views')))
+// app.set('fonts', express.static(fpath.join(__dirname + '/public/fonts')))
 
 //app.use('/scripts', express.static(fpath.join(__dirname + '/public/node_modules')))
 app.set('view engine', 'ejs')
@@ -142,15 +144,24 @@ app.use(function(err, req, res, next) {
     })
 })
 
-var server = httpsecurity.createServer(https_options, app).listen(PORT/* , HOST */)
+// var server = httpsecurity.createServer(https_options, app).listen(PORT/* , HOST */)
 
-, appio = socket_io.listen(server)
+// appio = socket_io.listen(server)
 
-, io = require('./ServerJavascript/socket.io')('')
+// , io = require('./ServerJavascript/socket.io')('');
 
-io.setSock(appio)
+// io.setSock(appio)
 
-console.log('HTTPS Server listening on %s:%s'/* , HOST */, PORT)
+var attach = (server) => {
+    
+    var appio = socket_io.listen(server)
+    , io = require('./ServerJavascript/socket.io')('');
+    io.attach(appio)
+}
+
+app.io = { attach: attach }
+
+// console.log('HTTPS Server listening on %s:%s'/* , HOST */, PORT)
 
 
 module.exports = app;

@@ -33,33 +33,55 @@
       // our app is within the app folder
       app: 'app',
 
-       // angular bundles
-      '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
-      '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+      // angular bundles
+      '@angular/core': 'npm:@angular/core/bundles/core.umd.min.js',
+      '@angular/common': 'npm:@angular/common/bundles/common.umd.min.js',
       '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
-      '@angular/animations': "npm:@angular/animations/bundles/animations.umd.js",
+      '@angular/animations': "npm:@angular/animations/bundles/animations.umd.min.js",
       '@angular/animations/browser': 'npm:@angular/animations/bundles/animations-browser.umd.js',
-      '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
-      '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',
-      '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
-      '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
-      '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
-      '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-      '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.js',
+      '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.min.js',
+      '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.min.js',
+      '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.min.js',
+      '@angular/http': 'npm:@angular/http/bundles/http.umd.min.js',
+      '@angular/router': 'npm:@angular/router/bundles/router.umd.min.js',
+      '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.min.js',
+      '@angular/upgrade': 'npm:@angular/upgrade/bundles/upgrade.umd.min.js',
+      '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
       '@ng-bootstrap/ng-bootstrap': 'npm:@ng-bootstrap/ng-bootstrap/bundles/ng-bootstrap.js',
-      '@angular/material':         'npm:@angular/material/bundles/material.umd.js',
-      '@angular/cdk':              'npm:@angular/cdk/bundles/cdk.umd.js',
-      '@angular/animations':         'npm:@angular/animations/bundles/animations.umd.js',
+      '@angular/material':         'npm:@angular/material/bundles/material.umd.min.js',
+      '@angular/cdk':              'npm:@angular/cdk/bundles/cdk.umd.min.js',
+      'socket.io-client':          'npm:socket.io-client/socket.io.min.js',
        // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
       'angular2-fontawesome':      'npm:angular2-fontawesome',
-      '@angular/material':         'npm:@angular/material/bundles/material.umd.js',
-      '@angular/cdk':              'npm:@angular/cdk/bundles/cdk.umd.js',
-      'hammerjs':                  'npm:hammerjs/hammer.js',
+      'hammerjs':                  'npm:hammerjs/hammer.min.js',
       'leaflet' :                  'npm:leaflet/dist/leaflet.js',
-      '@angular/flex-layout' : 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
-      'hammerjs':                  'npm:hammerjs/hammer.js',
+
+      /*  // angular bundles
+      '@angular/core': 'npm:core.umd.min.js',
+      '@angular/common': 'npm:common.umd.min.js',
+      '@angular/compiler': 'npm:compiler.umd.min.js',
+      '@angular/animations': "npm:animations.umd.min.js",
+      '@angular/animations/browser': 'npm:animations-browser.umd.min.js',
+      '@angular/platform-browser': 'npm:platform-browser.umd.min.js',
+      '@angular/platform-browser/animations': 'npm:platform-browser-animations.umd.min.js',
+      '@angular/platform-browser-dynamic': 'npm:platform-browser-dynamic.umd.min.js',
+      '@angular/http': 'npm:http.umd.min.js',
+      '@angular/router': 'npm:router.umd.min.js',
+      '@angular/forms': 'npm:forms.umd.min.js',
+      '@angular/upgrade': 'npm:upgrade.umd.min.js',
+      '@angular/material':         'npm:material.umd.min.js',
+      '@angular/cdk':              'npm:cdk.umd.min.js',
+      '@angular/flex-layout' :     'npm:flex-layout.umd.min.js',
+      '@ng-bootstrap/ng-bootstrap': 'npm:ng-bootstrap.js',
+
+      // other libraries
+      'rxjs':                      'npm:Rx.min.js',
+      'angular-in-memory-web-api': 'npm:in-memory-web-api.umd.min.js',
+      'angular2-fontawesome':      'npm:angular2-fontawesome.umd.min.js',
+      'hammerjs':                  'npm:hammer.min.js',
+      'leaflet' :                  'npm:leaflet.js', */
 
       // further angular bundles
     },
@@ -77,10 +99,6 @@
         defaultExtension: 'js'
       },
       'angular2-fontawesome': { 
-        defaultExtension: 'js'
-      },
-      'leaflet': {
-        format:'cjs',
         defaultExtension: 'js'
       }
     }

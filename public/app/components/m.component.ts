@@ -24,7 +24,7 @@ import { AlertService, AuthenticationService, EventsService } from '../services/
             ]
         )
     ],
-    styleUrls: ['../../styles/header.scss']
+    styleUrls: ['../../styles/header.css']
 })
 
 
@@ -89,7 +89,7 @@ export class MenuComponent implements OnInit {
     }
 
     logInOutAction() {
-        
+        console.log('something')
         if( this.authService.isLoggedIn ){
             this.logout(), this.loginListener()
         } 

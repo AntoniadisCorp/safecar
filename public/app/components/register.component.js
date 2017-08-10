@@ -107,7 +107,7 @@ var RegisterListComponent = (function () {
     RegisterListComponent = __decorate([
         core_1.Component({
             templateUrl: '../../views/ng_partials/regProfile.ejs',
-            styleUrls: ['../../styles/register.scss']
+            styleUrls: ['../../styles/register.css']
         }),
         __metadata("design:paramtypes", [router_1.Router,
             index_2.UserService,

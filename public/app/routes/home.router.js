@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("../_guards/index");
-var index_2 = require("../components/index");
+var index_1 = require("../components/index");
 // Route Configuration
 exports.HomeRoutes = [
-    { path: 'carboard/:id', component: index_2.CarboardListComponent /*, canDeactivate: [DeAuthGuard]*/ },
-    { path: 'login', canActivate: [index_1.AuthGuard], component: index_2.LoginComponent },
-    { path: 'register', component: index_2.RegisterListComponent, canActivate: [index_1.AuthGuard] }
+    { path: 'carboard/:id', component: index_1.CarboardListComponent /*, canDeactivate: [DeAuthGuard]*/ },
+    { path: 'login' /* , canActivate: [AuthGuard] */, component: index_1.LoginComponent },
+    { path: 'register', component: index_1.RegisterListComponent /* , canActivate: [AuthGuard] */ }
 ];
 //# sourceMappingURL=home.router.js.map

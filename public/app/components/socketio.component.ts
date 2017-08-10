@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core'
-
+import * as io from 'socket.io-client'
 
 @Component({
 
-    moduleId    : module.id,
+    /* moduleId    : module.id, */
     selector    : 'auction-app',
     templateUrl : '../../views/ng_partials/socketio.ejs'
 })

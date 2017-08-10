@@ -83,7 +83,7 @@ var LoginComponent = (function () {
     ], LoginComponent.prototype, "input", void 0);
     LoginComponent = __decorate([
         core_1.Component({
-            styleUrls: ['../../styles/login.scss'],
+            styleUrls: ['../../styles/login.css'],
             templateUrl: '../../views/ng_partials/login.ejs'
         }),
         __metadata("design:paramtypes", [router_1.ActivatedRoute,

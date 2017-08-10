@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 
     // selector: 'carboard',
     templateUrl: '../../views/ng_partials/carboard.ejs',
-    styleUrls: ['../../styles/carboard.scss']
+    styleUrls: ['../../styles/carboard.css']
 })
 
 

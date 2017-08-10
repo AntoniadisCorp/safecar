@@ -6,7 +6,7 @@ module.exports = (appio) => {
 
     module = {}
 
-    module.setSock = (appio) => {
+    module.attach = (appio) => {
 
         module.io = appio
 

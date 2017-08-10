@@ -18,7 +18,7 @@ var FooterComponent = (function () {
         core_1.Component({
             selector: 'foot',
             templateUrl: '../../views/main_partials/footer.ejs',
-            styleUrls: ['../../styles/footer.scss']
+            styleUrls: ['../../styles/footer.css']
         }),
         __metadata("design:paramtypes", [])
     ], FooterComponent);

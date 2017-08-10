@@ -9,7 +9,7 @@ import * as L from "leaflet"
 @Component({
     selector: 'leaflet',
     template: `<md-card ><map class="mat-card mat-elevation-z" id="mapid"></map></md-card>`,
-    styleUrls: ['../../styles/map.scss']
+    styleUrls: ['../../styles/map.css']
 })
 
 export class MapComponent implements OnInit, AfterViewInit {

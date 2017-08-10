@@ -5,7 +5,7 @@ import { NgbPopover } from '@ng-bootstrap/ng-bootstrap'
 
 @Component({
     
-    styleUrls: ['../../styles/login.scss'],
+    styleUrls: ['../../styles/login.css'],
     templateUrl: '../../views/ng_partials/login.ejs'
 })
  

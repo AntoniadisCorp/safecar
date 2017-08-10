@@ -3,8 +3,8 @@ import { BrowserModule }    from '@angular/platform-browser'
 import { HttpModule }       from '@angular/http'
 import { FormsModule }      from '@angular/forms'
 import { NgbModule }        from '@ng-bootstrap/ng-bootstrap'
-import  'hammerjs'
 
+import * as Hammer from 'hammerjs'
 
 
 // Routing Module
@@ -12,11 +12,11 @@ import { RoutingModule }    from './app.routes'
 
 // Material Module and fonts
 import { Angular2FontawesomeModule }  from 'angular2-fontawesome/angular2-fontawesome'
-import { MaterialModule }             from '@angular/material'
+import { MaterialModule, 
+  MdTabsModule, MdCardModule }        from '@angular/material'
 import { BrowserAnimationsModule }    from '@angular/platform-browser/animations'
 import { FlexLayoutModule }           from "@angular/flex-layout"
 import { CommonModule }               from '@angular/common'
-import { MdTabsModule, MdCardModule } from '@angular/material'
 // Auth Guard
 // import { AuthGuard, DeAuthGuard, CanLoadGuard } from './_guards/index'
 // import { AuthenticationService } from './services/index'
@@ -52,8 +52,8 @@ import { WindowRef }        from './services/index'
       BrowserAnimationsModule,
       FlexLayoutModule,
       CommonModule,
-      MdTabsModule,
-      MdCardModule
+      // MdTabsModule,
+      // MdCardModule
     ],
 
   declarations: [
